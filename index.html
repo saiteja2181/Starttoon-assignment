@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+    <title>Assignment</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+</head>
+<body>
+    <form name="myForm">
+        <br>
+        <input type="text" id="input" name="input" placeholder="Input Value">
+        <br><br>
+        <input type="text" id="max" name="max" placeholder="Max Value">
+        
+
+
+    </form>
+    
+    <div class="progress vertical" style="height:70px; background-color: #E4EBF5;">
+
+      <div class="progress-bar" id="myBar" role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background-color: #6EA3F2">
+    </div> 
+    <h5>Input</h5>
+  </div>
+  <div class="progress vertical1" style="height:70px; background-color: #E4EBF5; ">
+    <div class="progress-bar" id="myBar1" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; background-color: #6EA3F2">
+    </div>  
+    <h5>Max</h5>
+  </div>
+  
+    <button class="w3-button w3-green" id="b1" onclick="move()">Plot</button> 
+    
+    
+      
+      
+
+    <script>
+        function move() {
+          var elem = document.getElementById("myBar"); 
+          var elem2 = document.getElementById("myBar1"); 
+
+          var input1=document.getElementById("input");
+          var input2=document.getElementById("max");
+          var x = document.forms["myForm"]["input"].value;
+
+          var a = parseInt(input1.value);
+          var b = parseInt(input2.value);
+          if(a > b)
+          {
+            
+            alert("Please enter the appropiate input");
+          }
+          
+          var width = 0;
+          var id = setInterval(frame, 1);
+          function frame() {
+            if (width >= a) {
+              clearInterval(id);
+            } else if(x!="" && a<=b) {
+              width++; 
+              elem.style.width = width + '%'; 
+            
+              elem.innerHTML = width * 1  + '%';
+              
+             
+
+            }}
+        
+        
+        
+         var id1 = setInterval(frame1, 1);
+         var widthu=0;
+         function frame1() {
+            if (widthu >= b) {
+              clearInterval(id1);
+            } else if(x!="" && a<=b) {
+              widthu++; 
+              elem2.style.width = widthu + '%'; 
+              elem2.innerHTML = widthu * 1  + '%';
+
+            }
+          }
+        }
+        </script>
+        
+</body>
+</html>
